@@ -1,4 +1,6 @@
 const pianoKeys = Array.from(document.querySelectorAll(".piano-keys .key"));
+const volumeSlider = document.querySelector(".volume-slider input");
+
 const availableKeys = [
   65, 87, 83, 69, 68, 70, 84, 71, 89, 72, 85, 74, 75, 79, 76, 80, 186,
 ];
@@ -21,4 +23,9 @@ function playTune(e) {
   }
 }
 
+function handleVolume(e) {
+  audio.volume = e.target.value;
+}
+
 document.addEventListener("keydown", playTune);
+volumeSlider.addEventListener("input", handleVolume);
